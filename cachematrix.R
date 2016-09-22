@@ -6,13 +6,13 @@
 ## matrix inverse. 
 
 makeCacheMatrix <- function(x = matrix()) {
-    inv<- NULL
-    set<- function(y) {
+    inv <- NULL
+    set <- function(y) {
         x <<- y
         inv <<- NULL
     }
     
-    get <- function() inv
+    get <- function() x
     setinv <- function(minverse) inv <<- minverse
     getinv <- function() inv
     
@@ -33,7 +33,7 @@ cacheSolve <- function(x, ...) {
         return(inv)
     }
     data<-x$get()
-    inv<- solve(x,...)
+    inv <- solve(data)
     x$setinv(inv)
     inv
 }
